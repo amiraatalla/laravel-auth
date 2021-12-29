@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+use app\Http\Controllers\Auth\AuthController;
+
+Route::get('user', [AuthController::class, 'user']);
+Route::get('test',function(){
+    return "ok"; 
 });

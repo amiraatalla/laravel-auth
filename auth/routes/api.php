@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use app\Http\Controllers\Auth\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,4 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('user', [AuthController::class, 'user']);
+Route::get('test',function(){
+    return "ok"; 
+});
