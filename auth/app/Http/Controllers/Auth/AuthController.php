@@ -21,4 +21,8 @@ class AuthController extends Controller
        return 'Authenticated user';
     }
 
+    public function login(){
+        
+    }
+
 }
