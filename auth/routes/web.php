@@ -18,3 +18,4 @@ use App\Http\Controllers\Auth\AuthController;
 
 Route::get('user', [AuthController::class, 'user']);
 
+        

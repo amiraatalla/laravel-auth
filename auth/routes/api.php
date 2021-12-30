@@ -14,8 +14,3 @@ use app\Http\Controllers\Auth\AuthController;
 |
 */
 
-
-Route::get('user', [AuthController::class, 'user']);
-Route::get('test',function(){
-    return "ok"; 
-});
