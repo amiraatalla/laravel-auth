@@ -18,8 +18,4 @@ use App\Http\Controllers\Auth\AuthController;
 
 Route::get('user', [AuthController::class, 'user']);
 Route::post('register', [AuthController::class, 'register']);
-
-Route::post('/foo', function () {
-    echo 1;
-    return;
-});
+Route::post('login', [AuthController::class , 'login']);

@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
+use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
@@ -17,12 +20,22 @@ class AuthController extends Controller
         'password' =>Hash::make($request-> input('password'))
        ]);
     }
-    public function user(){
-       return 'Authenticated user';
-    }
+  
 
-    public function login(){
-        
+    public function login(Request $request)
+    {
+       if (!Auth::attempt($request ->only('email', 'password')))
+    {
+       return response(['message' => 'Invalid credential'], Response:: HTTP_UNAUTHORIZED);
     }
+      $user = Auth::user();
+      $token = $request->$user()->createToken('token')->plainTextToken;
+    return $token;
+}
+
+
+public function user(){
+   return 'Authenticated user';
+}
 
 }
