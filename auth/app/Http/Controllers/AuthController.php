@@ -44,4 +44,11 @@ class AuthController extends Controller
         return Auth::user();
     }
 
+    public function logout(Request $request){
+        $cookie = Cookie::forget('jwt');
+ 
+        return response([
+            'message' => 'Success'
+        ])->withCookie($cookie);
+    }
 }
